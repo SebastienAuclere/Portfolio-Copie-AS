@@ -166,18 +166,58 @@
 							    bien sûr je ne vous ai pas raconté tout ce que j'ai pu faire dans ma vie professionnelle, <br>
 								  et dans le développement ; sans compter photoshop 2022, figma et autres...</p>
 
-							<form method="post" action="#">
+							<form method="post" action="#" id="monformulaire">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-z '-]{2,35}+$"/></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$"/></div>
 									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
+										<textarea name="message" placeholder="Message" required pattern="^[A-Za-z '-.]{2,}+$" maxlength="500"></textarea>
 									</div>
 									<div class="col-12">
-										<input type="submit" value="Envoyer un message" />
+										<input type="submit" value="Envoyer un message"   id="submitBtn" disabled >
+										<!-- token CSRF -->
+										<!-- exemple :  <input type="hidden" name="csrf_token" value="TON_TOKEN_CSRF_ICI"> -->
+										<!-- Les attaques CSRF permettent à un attaquant de soumettre un formulaire en utilisant les cookies d'un utilisateur 
+										authentifié pour effectuer des actions malveillantes. Pour protéger contre cela, tu dois utiliser un token CSRF 
+										dans tes formulaires.
+										Sur le serveur, tu dois vérifier que le token CSRF envoyé avec la requête correspond à celui stocké côté serveur. -->
+										<!-- 2°) Les attaques XSS permettent à un attaquant d'injecter du code JavaScript malveillant dans un site.
+										Pour éviter cela, il est essentiel de valider et d’assainir les données envoyées par les utilisateurs.
+										Il est aussi important d’utiliser les en-têtes HTTP comme
+										Content-Security-Policy pour empêcher l'exécution de scripts malveillants. -->
+										<!-- 3°) Les CAPTCHA ou reCAPTCHA peuvent être utilisés pour s'assurer qu'une personne réelle soumet le formulaire
+										et non un bot automatisé. C'est particulièrement utile pour éviter les soumissions automatisées ou les attaques par force brute.
+										<div class="g-recaptcha" data-sitekey="TA_CLE_SITE_RECAPTCHA"></div>
+  										<input type="submit" value="Envoyer">
+										</form>
+										<script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+										<!-- POUR FINIR PROTEGER DU COTE SERVEUR !!!! -->
 									</div>
 								</div>
 							</form>
+							<script>
+								document.getElementById('monFormulaire').addEventListener('submit', function(event) {
+								  const nom = document.querySelector('input[name="name"]').value;
+								  const email = document.querySelector('input[name="email"]').value;
+								  
+								  if (nom === "" || email === "") {
+									event.preventDefault(); // Annule la soumission si un champ est vide
+									alert("Tous les champs sont obligatoires !");
+								  }
+								});
+							</script>
+							<script>
+								const submitBtn = document.getElementById('submitBtn');
+								const nomInput = document.getElementById('name');
+								
+								nomInput.addEventListener('input', function() {
+								  if (nomInput.value.trim() !== "") {
+									submitBtn.disabled = false;
+								  } else {
+									submitBtn.disabled = true;
+								  }
+								});
+							  </script>
 
 						</div>
 					</section>
@@ -189,7 +229,7 @@
 
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Téléchargement du <a href="https://drive.google.com/file/d/1VSLHr5DvHra3rMjpro-8pTa-s1crabUO/view">CV en Pdf</a></li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Téléchargement du <a href="">CV en Pdf</a></li>
 					</ul>
 
 			</div>
