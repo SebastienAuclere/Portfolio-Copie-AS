@@ -12,7 +12,7 @@ class FormRepository
      * @param string $email l'email renseigné dans le formulaire
      * @return bool TRUE si l'ajout a réussi, sinon FALSE
     */
-    public static function insertData(string $nom, string $email): bool {
+    public static function insertData(string $nom, string $email, string $messages): bool {
 
         /** @var PDO $db connexion à la base de données */
         $db = Dbconnect::getInstance();
@@ -21,11 +21,11 @@ class FormRepository
         $nblines = 0;
 
         /** @var PDOStatement $stmt initialisation de la requête préparée */
-        $stmt = $db->prepare("INSERT INTO tbl_formulaire (nom, email) VALUES (:nom, :email)");
+        $stmt = $db->prepare("INSERT INTO portfolio (nom, email, messages) VALUES (:nom, :email, :messages)");
 
         // exécution de la requêtes préparée
         // execute() retourne true si la requête a été exécutée avec succés, sinon false
-        if($stmt->execute([':nom' => $nom, ':email' => $email])) {
+        if($stmt->execute([':nom' => $nom, ':email' => $email, ':messages' =>$messages])) {
             // récupération du nombre de lignes affectées par la requête
             $nblines = $stmt->rowCount();
         }

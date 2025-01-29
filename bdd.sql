@@ -1,13 +1,14 @@
 /* mysql */
-DROP DATABASE IF EXISTS demo_formulaire;
+DROP DATABASE IF EXISTS portfolio;
 
-CREATE DATABASE IF NOT EXISTS demo_formulaire;
+CREATE DATABASE IF NOT EXISTS portfolio;
 
-USE demo_formulaire;
+USE portfolio;
 
-CREATE TABLE tbl_formulaire 
+CREATE TABLE clients 
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL
+    nom VARCHAR(60) NOT NULL,
+    email VARCHAR(60) NOT NULL,
+    messages VARCHAR(500)
 );

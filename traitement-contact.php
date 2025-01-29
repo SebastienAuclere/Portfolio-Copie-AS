@@ -1,4 +1,8 @@
 <?php
+// traitement-contact.php avec persistance des données
+
+// inclusion de la classe FormRepository afin d'y avoir accès
+require_once 'Dao/FormRepository.php';
 
 // Si la requête est de type POST
 if(!empty($_POST)){
@@ -9,14 +13,14 @@ if(!empty($_POST)){
         if(!isset(
             $_POST['name'],
             $_POST['email'],
-            $_POST['message'])
+            $_POST['messages'])
         ){
             throw new Exception('Le formulaire est incomplet');
         }
         
         $nom = $_POST['name'];
         $email = $_POST['email'];
-        $message = $_POST['message'];
+        $messages = $_POST['messages'];
 
         // contrôle de saisie
    
@@ -34,15 +38,25 @@ if(!empty($_POST)){
 
         // Supprime les éventuelles balises HTML
         // Permet d'éviter l'injection de <script>
-        $message = strip_tags($message);
+        $messages = strip_tags($messages);
         // Convertit les sauts de lignes en balises `<br>`
-        $message = nl2br($message);
+        $messages = nl2br($messages);
         // A partir de ce point, on considère que les données sont valides 
     
         // Affichage des données
-        echo "<p>Nom: $nom</p>\n";                
-        echo "<p>Adresse email: $email</p>\n";
-        echo "<p>Message: $message</p>\n";
+        //echo "<p>Nom: $nom</p>\n";                
+        //echo "<p>Adresse email: $email</p>\n";
+        //echo "<p>Message: $messages</p>\n";
+
+        // Sauvegarde dans la base de données et affichage du résultat
+        if(FormRepository::insertData($nom, $email, $messages)) {
+            echo 'Les données ont bien été sauvegardées';
+        } else {
+            echo 'Erreur lors de la sauvegarde des données';
+        }
+
+        // Ajout d'un lien pour retourner vers le formulaire
+        echo '<p><a href="index.html">Retour au formulaire</a></p>';
         
     } catch(Exception $ex) {
         echo 'Erreur: '. $ex->getMessage();
