@@ -56,7 +56,7 @@ if(!empty($_POST)){
         }
 
         // Ajout d'un lien pour retourner vers le formulaire
-        echo '<p><a href="index.html">Retour au formulaire</a></p>';
+        echo '<p><a href="index.html">Retour sur mon site</a></p>';
         
     } catch(Exception $ex) {
         echo 'Erreur: '. $ex->getMessage();
