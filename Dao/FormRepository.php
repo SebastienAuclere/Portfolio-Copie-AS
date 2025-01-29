@@ -10,6 +10,7 @@ class FormRepository
      * Ajoute une nouvelle ligne dans la table 'tbl_formulaire'
      * @param string $nom le nom renseigné dans le formulaire
      * @param string $email l'email renseigné dans le formulaire
+     * @param string $messages le message renseigné dans le formulaire
      * @return bool TRUE si l'ajout a réussi, sinon FALSE
     */
     public static function insertData(string $nom, string $email, string $messages): bool {
