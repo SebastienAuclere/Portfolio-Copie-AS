@@ -168,14 +168,14 @@
 
 							<form method="post" action="#" id="monformulaire">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-z '-]{2,35}+$"/></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-zÀ-ÿ '-]{2,60}+$"/></div>
 									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$"/></div>
 									<div class="col-12">
-										<textarea name="message" placeholder="Message" required pattern="^[A-Za-z '-.]{2,}+$" maxlength="500"></textarea>
+										<textarea name="message" placeholder="Message" required pattern="^[A-Za-zÀ-ÿ '-]{2,}+$" maxlength="500"></textarea>
 									</div>
 									<div class="col-12">
 										<input type="submit" value="Envoyer un message"   id="submitBtn" disabled >
-										<!-- token CSRF -->
+										<!-- 1°) token CSRF -->
 										<!-- exemple :  <input type="hidden" name="csrf_token" value="TON_TOKEN_CSRF_ICI"> -->
 										<!-- Les attaques CSRF permettent à un attaquant de soumettre un formulaire en utilisant les cookies d'un utilisateur 
 										authentifié pour effectuer des actions malveillantes. Pour protéger contre cela, tu dois utiliser un token CSRF 
@@ -191,7 +191,7 @@
   										<input type="submit" value="Envoyer">
 										</form>
 										<script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-										<!-- POUR FINIR PROTEGER DU COTE SERVEUR !!!! -->
+										<!-- 4°) POUR FINIR PROTEGER DU COTE SERVEUR !!!! -->
 									</div>
 								</div>
 							</form>
@@ -209,9 +209,18 @@
 							<script>
 								const submitBtn = document.getElementById('submitBtn');
 								const nomInput = document.getElementById('name');
+								const emailInput = document.getElementById('email');
 								
 								nomInput.addEventListener('input', function() {
 								  if (nomInput.value.trim() !== "") {
+									submitBtn.disabled = false;
+								  } else {
+									submitBtn.disabled = true;
+								  }
+								});
+
+								emailInput.addEventListener('input', function() {
+								  if (emailInput.value.trim() !== "") {
 									submitBtn.disabled = false;
 								  } else {
 									submitBtn.disabled = true;
