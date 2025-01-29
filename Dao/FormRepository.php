@@ -2,7 +2,7 @@
 /* /Dao/FormRepository.php */ 
 
 // inclusion de la classe DbConnect qui sera utilisée dans la méthode insertData()
-require_once 'Dbconnect.php';
+require_once 'DbConnect.php';
 
 class FormRepository 
 {
@@ -15,13 +15,13 @@ class FormRepository
     public static function insertData(string $nom, string $email, string $messages): bool {
 
         /** @var PDO $db connexion à la base de données */
-        $db = Dbconnect::getInstance();
+        $db = DbConnect::getInstance();
 
         /** @var $nblines stockera le nombre de lignes affectées par la requête */
         $nblines = 0;
 
         /** @var PDOStatement $stmt initialisation de la requête préparée */
-        $stmt = $db->prepare("INSERT INTO portfolio (nom, email, messages) VALUES (:nom, :email, :messages)");
+        $stmt = $db->prepare("INSERT INTO clients (nom, email, messages) VALUES (:nom, :email, :messages)");
 
         // exécution de la requêtes préparée
         // execute() retourne true si la requête a été exécutée avec succés, sinon false

@@ -168,10 +168,10 @@
 
 							<form method="post" action="traitement-contact.php" id="monformulaire">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-zÀ-ÿ '-]{2,60}+$"/></div>
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-zÀ-ÿ '-]{2,60}$"/></div>
 									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" required pattern="^[A-Za-z]+@{1}[A-Za-z]+\.{1}[A-Za-z]{2,}$"/></div>
 									<div class="col-12">
-										<textarea name="messages" placeholder="Message" required pattern="^[A-Za-zÀ-ÿ '-]{2,}+$" maxlength="500"></textarea>
+										<textarea name="messages" placeholder="Message" required pattern="^[A-Za-zÀ-ÿ '-]{2,}$" maxlength="500"></textarea>
 									</div>
 									<div class="col-12">
 										<input type="submit" value="Envoyer un message"   id="submitBtn" disabled >
@@ -195,7 +195,7 @@
 									</div>
 								</div>
 							</form>
-							<script>
+							<!-- <script>
 								document.getElementById('monFormulaire').addEventListener('submit', function(event) {
 								  const nom = document.querySelector('input[name="name"]').value;
 								  const email = document.querySelector('input[name="email"]').value;
@@ -226,7 +226,7 @@
 									submitBtn.disabled = true;
 								  }
 								});
-							  </script>
+							  </script> -->
 
 						</div>
 					</section>
