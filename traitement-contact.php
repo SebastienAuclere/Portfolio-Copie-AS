@@ -17,7 +17,7 @@ if(!empty($_POST)){
             $_POST['email'],
             $_POST['messages'])
         ){
-            throw new Exception('Le formulaire est incomplet');
+            throw new Exception('Le formulaire est incomplet veuillez recommencer la saisie');
         }
         
         $nom = $_POST['name'];
@@ -30,12 +30,12 @@ if(!empty($_POST)){
         // Si le nombre de caractères est inférieur à 2 ou supérieur à 60
         // Erreur
         if(!preg_match('/^[A-Za-zÀ-ÿ \'-]{2,60}$/', $nom)) {
-            throw new Exception('Le format du nom est incorrect');
+            throw new Exception('Le format du nom est incorrect veuillez recommencer la saisie');
         }
 
         // Contrôler l'email
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new Exception('L\email est invalide');
+            throw new Exception('L\'email est invalide veuillez recommencer la saisie');
         }
 
         // Supprime les éventuelles balises HTML
@@ -56,7 +56,7 @@ if(!empty($_POST)){
             header('location: index.php#contact'); // redirigé vers index et plus précisément section id contact
            // echo '<p style="background: url(\'images/pexels-tnp-1464613945-29971507.jpg\');color:red;">Le formulaire est envoyé, je vous recontacte au plus vite !! </p>';
         } else {
-            throw new Exception('Erreur lors de la sauvegarde des données');
+            throw new Exception('Erreur lors de la sauvegarde des données veuillez recommencer la saisie');
            // echo 'Erreur lors de la sauvegarde des données';
         }
 
