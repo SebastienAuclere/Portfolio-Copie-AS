@@ -4,6 +4,8 @@
 // inclusion de la classe FormRepository afin d'y avoir accès
 require_once 'Dao/FormRepository.php';
 
+session_start(); // pour lier variable session avec index.php
+
 // Si la requête est de type POST
 if(!empty($_POST)){
     
@@ -50,16 +52,21 @@ if(!empty($_POST)){
 
         // Sauvegarde dans la base de données et affichage du résultat
         if(FormRepository::insertData($nom, $email, $messages)) {
-            echo '<p style="background: url(\'images/pexels-tnp-1464613945-29971507.jpg;\');color:red;">Le formulaire est envoyé, je vous recontacte au plus vite !! </p>';
+            $_SESSION['validation_formulaire'] = 'Le formulaire est envoyé, je vous recontacte au plus vite !!'; // formulaire validé dans session
+            header('location: index.php#contact'); // redirigé vers index et plus précisément section id contact
+           // echo '<p style="background: url(\'images/pexels-tnp-1464613945-29971507.jpg\');color:red;">Le formulaire est envoyé, je vous recontacte au plus vite !! </p>';
         } else {
-            echo 'Erreur lors de la sauvegarde des données';
+            throw new Exception('Erreur lors de la sauvegarde des données');
+           // echo 'Erreur lors de la sauvegarde des données';
         }
 
         // Ajout d'un lien pour retourner vers le formulaire
-        echo '<p><a href="index.html">Retour sur mon site</a></p>';
+        //echo '<p><a href="index.html">Retour sur mon site</a></p>';
         
     } catch(Exception $ex) {
-        echo 'Erreur: '. $ex->getMessage();
+        $_SESSION['erreur_formulaire'] = 'Erreur: '. $ex->getMessage(); //on ouvre une session a chaque erreurs
+        header('location: index.php#contact');                          //redirigé sur index id contact
+        //echo 'Erreur: '. $ex->getMessage();
         exit;
     } // fin du try/catch
         

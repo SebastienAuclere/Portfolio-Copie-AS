@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<?php 
+session_start(); // pour lier variable de session avec traitement-contact.php 
+?><!DOCTYPE HTML>
 <!--
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -162,9 +164,26 @@
 								<h2>Contact</h2>
 							</header>
 
-							<p>Si mon histoire vous a plus et qu'elle vous a donné envie de me rencontrer on pourrait prendre un rendez-vous pour discuter,<br>
+							<p>Si mon histoire vous a plu et qu'elle vous a donné envie de me rencontrer on pourrait prendre un rendez-vous pour discuter,<br>
 							    bien sûr je ne vous ai pas raconté tout ce que j'ai pu faire dans ma vie professionnelle, <br>
 								  et dans le développement ; sans compter photoshop 2022, figma et autres...</p>
+							
+								  
+							<?php 
+								if(!empty($_SESSION['validation_formulaire'])) { //variable session validee
+									echo '<div class="resultat-formulaire">';
+									echo $_SESSION['validation_formulaire'];	 //variable affichee	
+									echo '</div>';
+									$_SESSION['validation_formulaire'] = null;   //variable mise nulle
+								}
+								if(!empty($_SESSION['erreur_formulaire'])) {	 //variable session validee
+									echo '<div class="erreur-formulaire">';
+									echo $_SESSION['erreur_formulaire'];		 //variable affichee
+									echo '</div>';
+									$_SESSION['erreur_formulaire'] = null;		 //variable mise nulle
+								}
+							?>
+							
 
 							<form method="post" action="traitement-contact.php" id="monformulaire">
 								<div class="row">
