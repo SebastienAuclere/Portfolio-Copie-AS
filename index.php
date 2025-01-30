@@ -85,8 +85,8 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 							<p>Dans un premier temps je me suis formé de manière autodidacte par l'intermédiaire de formations, de tutos sur openclassroom<br> et youtube.
 							J'ai ensuite eu la chance de pouvoir accéder a une formation au CRM de Mulhouse où j'ai pu suivre des cours et de la mise en <br>pratique
-							 tout en continuant de m'intéresser, quand ma force le permettait, en regardant des vidéos sur le sujet de l'informatique<br> en général
-							 je dois tout à une seule phrase d'un mentor, ami, un jour il m'a dit: "ne jamais lâcher !"...   </p>
+							 tout en continuant de m'intéresser, quand ma force le permettait, en regardant des vidéos sur le sujet de l'informatique<br> en général.
+							 Je dois tout à une seule phrase d'un mentor, ami, un jour il m'a dit: "ne jamais lâcher !"...   </p>
 
 							<div class="row">
 								<div class="col-4 col-12-mobile">
@@ -113,7 +113,7 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 									<article class="item">
 										<a href="#" class="image fit"><img src="images/pexels-cottonbro-6804071.jpg" alt="" /></a>
 										<header>
-											<h3>Conditions</h3>
+											<h3>Open-space</h3>
 										</header>
 									</article>
 								</div>
@@ -121,7 +121,7 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 									<article class="item">
 										<a href="#" class="image fit"><img src="images/pexels-cottonbro-5474296.jpg" alt="" /></a>
 										<header>
-											<h3>Open-space</h3>
+											<h3>Conditions</h3>
 										</header>
 									</article>
 									<article class="item">
@@ -146,11 +146,11 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 							<a href="#" class="image featured"><img src="images/pexels-isaiah-ekele-102046059-18357250.jpg" alt="" /></a>
 
-							<p>Avant cette formation j'ai suivi dans ma ville, un parcours, grâce a une société du numérique qui prend en charge des personnes<br>
+							<p>Avant cette formation j'ai suivi ; dans ma ville, un parcours, grâce a une société du numérique qui prend en charge des personnes<br>
 								 en difficulté. J'ai travaillé en temps partiel dans la vidéo avec une personne qui a pris le temps de m'expliquer<br>
 								    toutes les ficelles du métier, cette personne m'a donné des clefs fantastiques au point de vue photos et vidéos<br>
 									  et en environ huit mois je pouvais prendre n'importe quel poste dans une boite de journalisme:<br>
-									       perche, caméras, montage, voix off grace à son expérience j'ai réalisé mon documentaire final <br>
+									       perche, caméras, montage, voix off, grâce à son expérience j'ai réalisé mon documentaire final <br>
 										   en toute autonomie et je ne pourrais jamais autant le remercier face à tout ce que j'ai appris grâce à lui.</p>
 
 						</div>
@@ -166,7 +166,7 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 							<p>Si mon histoire vous a plu et qu'elle vous a donné envie de me rencontrer on pourrait prendre un rendez-vous pour discuter,<br>
 							    bien sûr je ne vous ai pas raconté tout ce que j'ai pu faire dans ma vie professionnelle, <br>
-								  et dans le développement ; sans compter photoshop 2022, figma et autres...</p>
+								  et dans le développement ; sans compter photoshop 2022, figma et tant d'autres...</p>
 							
 								  
 							<?php 
@@ -187,7 +187,7 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 							<form method="post" action="traitement-contact.php" id="monformulaire">
 								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" required pattern="^[A-Za-zÀ-ÿ '-]{2,60}$"/></div>									
+									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Nom" required pattern="^[A-Za-zÀ-ÿ '-]{2,60}$"/></div>									
 									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" required pattern="^[A-Za-z0-9]+(?:[.!#$%&'*+\-/=?^_`{|}~][A-Za-z0-9]+)*$"/></div>
 									<div class="col-12">
 										<textarea name="messages" pattern="^[a-zA-Z0-9\s.,;!?'-]{1,500}$" placeholder="Entrez votre message ici (max 500 caractères)" required></textarea>										
