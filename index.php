@@ -166,7 +166,9 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 							<p>Si mon histoire vous a plu et qu'elle vous a donné envie de me rencontrer on pourrait prendre un rendez-vous pour discuter,<br>
 							    bien sûr je ne vous ai pas raconté tout ce que j'ai pu faire dans ma vie professionnelle, <br>
-								  et dans le développement ; sans compter photoshop 2022, figma et tant d'autres...</p>
+								  et dans le développement ; sans compter photoshop 2022, figma et tant d'autres...Le formulaire que vous allez remplir ici,
+								c'est moi qui l'ai fait, il y as une vérification des données en php et toutes les infos sont insérées dans une base de données,
+							          certes j'ai eu un peu d'aide pour de petites erreurs mais j'en ai réalisé la majeure partie... </p>
 							
 								  
 							<?php 
