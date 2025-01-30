@@ -50,7 +50,7 @@ if(!empty($_POST)){
 
         // Sauvegarde dans la base de données et affichage du résultat
         if(FormRepository::insertData($nom, $email, $messages)) {
-            echo 'Les données ont bien été sauvegardées';
+            echo '<p style="background: url(\'images/pexels-tnp-1464613945-29971507.jpg;\');color:red;">Le formulaire est envoyé, je vous recontacte au plus vite !! </p>';
         } else {
             echo 'Erreur lors de la sauvegarde des données';
         }
