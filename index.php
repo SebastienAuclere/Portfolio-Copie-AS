@@ -259,7 +259,7 @@ session_start(); // pour lier variable de session avec traitement-contact.php
 
 				<!-- Copyright -->
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Téléchargement du <a href="">CV en Pdf</a></li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Téléchargement du <a href="./document/cv_auclere_seb_final.pdf">CV en Pdf</a></li>
 					</ul>
 
 			</div>

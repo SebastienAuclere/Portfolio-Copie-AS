@@ -44,6 +44,9 @@ if(!empty($_POST)){
         // Convertit les sauts de lignes en balises `<br>`
         $messages = nl2br($messages);
         // A partir de ce point, on considère que les données sont valides 
+
+        $date = new DateTime(); // On crée une nouvelle variable avec classe Datetime 
+        $dateEnvoi = $date->format("Y-m-d H:i:s"); // On crée dateEnvoi au format "Y-m-d H:i:s"
     
         // Affichage des données
         //echo "<p>Nom: $nom</p>\n";                
@@ -51,7 +54,7 @@ if(!empty($_POST)){
         //echo "<p>Message: $messages</p>\n";
 
         // Sauvegarde dans la base de données et affichage du résultat
-        if(FormRepository::insertData($nom, $email, $messages)) {
+        if(FormRepository::insertData($nom, $email, $messages, $dateEnvoi)) {
             $_SESSION['validation_formulaire'] = 'Le formulaire est envoyé, je vous recontacte au plus vite !!'; // formulaire validé dans session
             header('location: index.php#contact'); // redirigé vers index et plus précisément section id contact
            // echo '<p style="background: url(\'images/pexels-tnp-1464613945-29971507.jpg\');color:red;">Le formulaire est envoyé, je vous recontacte au plus vite !! </p>';
